@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, Input, Renderer2, OnChanges } from '@angular/core';
 import { extractTransformPosition } from './extractTransformPosition';
 
 enum LockScrollHorizontalPosition {
@@ -9,7 +9,7 @@ enum LockScrollHorizontalPosition {
 @Directive({
   selector: '[app-lock-scroll-horizontal]'
 })
-export class LockScrollHorizontalDirective {
+export class LockScrollHorizontalDirective implements OnChanges {
   private static readonly classNameLeft: string = 'is-horizontal-translated-left';
   private static readonly classNameRight: string = 'is-horizontal-translated-right';
 
@@ -28,10 +28,17 @@ export class LockScrollHorizontalDirective {
 
   public constructor(private _containerElement: ElementRef<HTMLElement>, private renderer: Renderer2) {}
 
+  ngOnChanges(changes) {
+	  if (changes.position) {
+		  console.log('Horizontal Position', changes.position.currentValue);
+	  }
+  }
+
   public reverseScroll(deltaWidthLeft?: number, deltaWidthRight?: number): void {
     const [xTransform, yTransform] = extractTransformPosition(this._containerElement.nativeElement);
 
     const appliedDelta = this.getAppliedDelta(deltaWidthLeft, deltaWidthRight);
+	console.log('dwl', deltaWidthLeft, 'dwr', deltaWidthRight, 'Applied', appliedDelta);
     this.renderer.setStyle(this._containerElement.nativeElement, 'transform', `translate(${appliedDelta}px, ${yTransform}px)`);
 
     const elemHaveClass = this._containerElement.nativeElement.classList.contains(this.className);

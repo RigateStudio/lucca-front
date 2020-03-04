@@ -6,6 +6,11 @@ export class LockScrollOffset {
     return rect.top + window.pageYOffset - document.documentElement.clientTop;
   }
 
+  public get elementHeight(): number {
+    const rect = this._containerElement.nativeElement.getBoundingClientRect();
+    return rect.height;
+  }
+  
   public get offsetLeft(): number {
     const rect = this._containerElement.nativeElement.getBoundingClientRect();
     return rect.left + window.pageXOffset - document.documentElement.clientLeft;

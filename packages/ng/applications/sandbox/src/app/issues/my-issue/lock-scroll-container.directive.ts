@@ -50,8 +50,9 @@ export class LockScrollContainerDirective extends LockScrollOffset implements Af
     if (this.hasChildrenHeaderDirectives()) {
       // -1 px because we could saw some data under the thead
       const deltaHeight = this.getPositiveDelta(this.offsetTop - this.referencePoint.offsetTop - 1);
+      const deltaHeightBottom = this.getPositiveDelta(this.referencePoint.elementHeight - this.elementHeight - deltaHeight);
       this.verticalDirectiveList.forEach((item) => {
-        item.reverseScroll(deltaHeight);
+        item.reverseScroll(deltaHeight, deltaHeightBottom);
       });
     }
 

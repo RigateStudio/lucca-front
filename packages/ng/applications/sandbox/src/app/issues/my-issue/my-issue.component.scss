@@ -15,7 +15,24 @@
     }
     &.is-horizontal-translated-right {
       box-shadow: -8px 0px 10px -2px red;
-    }
+    }   
+}
 
-    
+.table-filters {
+	min-width: 100%;
+	max-width: 100%;
+	background: yellow;
+}
+
+.parent {
+	max-width: 100vw;
+	overflow: auto;
+	height: 60vh;
+}
+
+.table-head-row-cell {
+    min-width: 50rem;
+    &:first-child, &:last-child {
+        min-width: 1rem;
+    }
 }
