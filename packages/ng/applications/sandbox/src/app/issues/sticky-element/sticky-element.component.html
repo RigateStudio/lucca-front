@@ -1,0 +1,37 @@
+<h1>sticky-element</h1>
+
+<div app-lock-scroll-container>
+	<header app-lock-scroll-horizontal="left">
+		<div class="grid mod-xsBottom">
+			imaginonts des filtres ici
+		</div>
+	</header>
+	<section>
+		<table class="table u-animatedFadeIn" app-lock-scroll-reference-point>
+			<thead class="table-head">
+				<tr class="table-head-row">
+					<th class="table-head-row-cell" app-lock-scroll-vertical app-lock-scroll-horizontal="left">TABLE_NAME</th>
+					<th class="table-head-row-cell" app-lock-scroll-vertical>TABLE_EMPLOYEE_NUMBER</th>
+					<th class="table-head-row-cell" app-lock-scroll-vertical>TABLE_LEGAL_ENTITY</th>
+					<th class="table-head-row-cell" app-lock-scroll-vertical>TABLE_DEPARTMENT</th>
+					<th class="table-head-row-cell" app-lock-scroll-vertical>TABLE_NAME 2 </th>
+					<th class="table-head-row-cell" app-lock-scroll-vertical>TABLE_EMPLOYEE_NUMBER 2</th>
+					<th class="table-head-row-cell" app-lock-scroll-vertical>TABLE_LEGAL_ENTITY 2 </th>
+					<th class="table-head-row-cell" app-lock-scroll-vertical>TABLE_DEPARTMENT 2</th>
+				</tr>
+			</thead>
+			<tbody class="table-body">
+				<tr class="table-body-row" *ngFor="let truc of fakeList">
+					<td class="table-body-row-cell" app-lock-scroll-horizontal="left">{{ truc.id }} </td>
+					<td class="table-body-row-cell">{{ truc.bidule }} </td>
+					<td class="table-body-row-cell">{{truc.truc}}</td>
+					<td class="table-body-row-cell">{{truc.machin}}</td>
+					<td class="table-body-row-cell">{{truc.col4}}</td>
+					<td class="table-body-row-cell">{{truc.col5}}</td>
+					<td class="table-body-row-cell">{{truc.col6}}</td>
+					<td class="table-body-row-cell mod-alignRight" app-lock-scroll-horizontal="right">{{truc.col7}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</div>
