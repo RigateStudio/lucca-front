@@ -1,0 +1,21 @@
+[app-lock-scroll-vertical], [app-lock-scroll-horizontal] {
+    z-index: 99;
+  }
+  [app-lock-scroll-vertical][app-lock-scroll-horizontal] {
+    z-index: 999;
+  }
+  [app-lock-scroll-vertical], [app-lock-scroll-horizontal] {
+    background: white;
+    position: relative;
+    &.is-vertical-translated {
+      box-shadow: 0 3px 0 red;
+    }
+    &.is-horizontal-translated-left {
+      box-shadow: 8px 0px 10px -2px red;
+    }
+    &.is-horizontal-translated-right {
+      box-shadow: -8px 0px 10px -2px red;
+    }
+
+    
+}
